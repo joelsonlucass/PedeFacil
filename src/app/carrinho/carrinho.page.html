@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-button slot="start" fill="clear" (click)="back()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+      <ion-title>Meu Carrinho</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content style="--background: url(../../assets/imagens/logo-black.png);" padding>
+  
+    <ion-item-sliding *ngFor="let cart of carrinho">
+      <!-- inicio do item do carrinho do usuario-->
+      <ion-item-sliding>
+        <ion-item style="--background: white;">
+          <!-- content com a nota e estrela amarela -->
+          <ion-icon name="cart" item-start style="color: #555555"></ion-icon>&nbsp;
+          <!-- label principal para a lista -->
+          <ion-label>
+            <!-- nome do prato -->
+            <h2>&nbsp;&nbsp;{{cart.item}}</h2>
+            <p>&nbsp;&nbsp;{{cart.CCOUNT}}x</p>
+          </ion-label>
+          <!-- botao de adicionar -->
+          <ion-button slot="end" fill="clear" color="danger" (click)="remove(cart.item)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-item-sliding>
+    <br><br><br>
+    <!-- botao finalizar pedido -->
+    <ion-button expand="full" (click)="finalizarpedido()">
+      Finalizar Pedido
+      <ion-icon slot="end" name="cash"></ion-icon>
+    </ion-button>
+  
+  </ion-content>

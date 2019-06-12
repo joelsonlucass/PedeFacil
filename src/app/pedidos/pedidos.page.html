@@ -1,0 +1,32 @@
+<ion-content style="--background: url(../../assets/imagens/logo-black.png);" padding>
+
+    <!-- inicio do item da lista de pedidos do usuario-->
+    <ion-item-sliding *ngFor="let pedido of pedidos">
+        <ion-item>
+            <!-- imagem do restaurante realizado o pedido -->
+            <ion-avatar slot="start">
+                <img src="assets/imagens/ponto-do-sabor.png">
+            </ion-avatar>
+            <!-- label principal para a lista -->
+            <ion-label>
+                <!-- nome do restaurante realizado o pedido -->
+                <h2>{{pedido.nome}}</h2>
+                <!-- itens solicitados pelo usuario -->
+                <p>{{pedido.descricao}}</p>
+            </ion-label>
+            <!-- horario e dia do pedido -->
+            <ion-note slot="end">
+                <p>{{pedido.hora}}</p>
+                <p>{{pedido.dia}}</p>
+            </ion-note>
+            
+        </ion-item>
+        <!-- opcao de deletar o pedido com um botão slider -->
+        <ion-item-options side="end">
+            <!-- nome do botao e função a ser chamada -->
+            <ion-item-option (click)="deletar(pedido.descricao,pedido.hora)">Deletar</ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+    <!-- fim item da lista-->
+
+</ion-content>

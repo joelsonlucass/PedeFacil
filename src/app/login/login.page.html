@@ -1,0 +1,34 @@
+<ion-content padding>
+
+  <!-- paragrafo com alinhamento no centro -->
+  <p style="text-align: center;margin-top:28%">
+    <!-- logotipo centralizado -->
+    <img src="../../assets/imagens/logo-red.png"
+      style="height:250px;animation-name: animation-login;animation-duration: 6s"><br>
+  </p>
+  <!-- item email -->
+  <ion-item>
+    <!-- label e input email-->
+    <ion-label position="floating">Email:</ion-label>
+    <ion-input type="email" value="" [(ngModel)]="logindata.email"></ion-input>
+  </ion-item>
+  <!-- item senha -->
+  <ion-item>
+    <!-- label e input senha -->
+    <ion-label position="floating">Senha:</ion-label>
+    <ion-input type="password" value="" [(ngModel)]="logindata.senha"></ion-input>
+  </ion-item>
+  <!-- botao esqueceu a senha-->
+  <ion-button fill="clear" size="small" color="danger" (click)="esqueceusenha()">Esqueci a senha</ion-button>
+  <br><br>
+  <!-- botao de login-->
+  <ion-button expand="full" color="danger" (click)="login()">Login</ion-button>
+  <br>
+  <!-- label centralizado nao tem uma conta -->
+  <p style="text-align: center">
+    <ion-label>Não tem uma conta ?</ion-label>
+  </p>
+  <br>
+  <!-- botao de cadastro -->
+  <ion-button expand="block" fill="outline" color="danger" (click)="cadastro()">Cadastre-se</ion-button>
+</ion-content>

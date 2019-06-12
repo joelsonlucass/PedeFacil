@@ -1,0 +1,53 @@
+<ion-button slot="start" fill="clear" (click)="back()">
+  <ion-icon name="arrow-round-back"></ion-icon>&nbsp;Voltar para tela de login
+</ion-button>
+<ion-content padding>
+  <!-- paragrafo com alinhamento no centro -->
+  <p style="text-align: center;margin-top:5%">
+    <!-- logotipo centralizado -->
+    <img src="../../assets/imagens/logo-red.png"
+      style="height:250px;animation-name: animation-login;animation-duration: 6s"><br>
+  </p>
+  <!-- item com um box para o label e input email -->
+  <h4 style="text-align: left;color: #888;margin-left: 2%;font-weight: bold">Cadastro</h4>
+  <!-- label nome completo floating-->
+  <ion-item>
+    <!-- label nome completo floating -->
+    <ion-label position="floating">Nome Completo:</ion-label>
+    <!-- input nome completo -->
+    <ion-input type="text" value="" [(ngModel)]="cadastrodata.nome"></ion-input>
+  </ion-item>
+  <!-- label telefone floating-->
+  <ion-item>
+    <!-- label telefone floating -->
+    <ion-label position="floating">Telefone (Apenas Numeros):</ion-label>
+    <!-- input telefone -->
+    <ion-input type="number" value="" [(ngModel)]="cadastrodata.telefone"></ion-input>
+  </ion-item>
+  <!-- label cpf floating-->
+  <ion-item>
+    <!-- label cpf floating -->
+    <ion-label position="floating">CPF (Apenas Numeros):</ion-label>
+    <!-- input cpf -->
+    <ion-input type="number" value="" [(ngModel)]="cadastrodata.cpf"></ion-input>
+  </ion-item>
+  <ion-item>
+    <!-- label email floating -->
+    <ion-label position="floating">Email:</ion-label>
+    <!-- input email -->
+    <ion-input type="email" value="" [(ngModel)]="cadastrodata.email"></ion-input>
+  </ion-item>
+  <!-- item com um box para o label e input senha -->
+  <ion-item>
+    <ion-label position="floating">Senha:</ion-label>
+    <ion-input type="password" value="" [(ngModel)]="cadastrodata.senha"></ion-input>
+  </ion-item>
+  <!-- item com um box para o label e input confirmação de senha -->
+  <ion-item>
+    <ion-label position="floating">Confirmação da Senha:</ion-label>
+    <ion-input type="password" value="" [(ngModel)]="cadastrodata.confirmsenha"></ion-input>
+  </ion-item>
+  <br>
+  <!-- botão de login -->
+  <ion-button expand="full" color="danger" (click)="cadastrar()">Cadastrar</ion-button>
+</ion-content>

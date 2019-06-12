@@ -1,0 +1,30 @@
+<ion-content style="--background: url(../../assets/imagens/logo-black.png);" hide-tabs padding>
+
+  <!-- Restaurante list for in json -->
+  <ion-card style="background-color: white" *ngFor="let restaurante of restaurantes">
+    <!-- div clicavel se disponivel -->
+    <div (click)="cardapio(restaurante.status,restaurante.idrestaurante,restaurante.photo,restaurante.nome)">
+      <!-- imagem do restaurante -->
+      <img class="{{restaurante.status}}-restaurant" [src]="restaurante.photo" style="width:60%;margin-left:20%" />
+      <!-- content com nome e descricao do restaurante-->
+      <ion-card-content class="{{restaurante.status}}-restaurant">
+        <ion-card-title>
+          {{restaurante.nome}}
+        </ion-card-title>
+        <p>
+          {{restaurante.descricao}}
+        </p>
+      </ion-card-content>
+      <!-- content com a nota e estrela amarela -->
+      <ion-item class="{{restaurante.status}}-restaurant">
+        <ion-icon ios="ios-star-outline" md="md-star-outline" item-start style="color: #ffce00"></ion-icon>&nbsp;
+        <ion-badge item-end color="warning">{{restaurante.nota}}</ion-badge>
+      </ion-item>
+      <!-- content com o tipo e o icone do tipo restaurante-->
+      <ion-item class="{{restaurante.status}}-restaurant">
+        <ion-icon name='{{restaurante.icon}}' item-start style="color: #f04141"></ion-icon>&nbsp;
+        <ion-badge item-end color="danger">{{restaurante.tipo}}</ion-badge>
+      </ion-item>
+    </div>
+  </ion-card>
+</ion-content>

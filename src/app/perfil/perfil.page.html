@@ -1,0 +1,51 @@
+<ion-content style="--background: url(../../assets/imagens/logo-black.png);" padding>
+  <!-- ion card com for das informacoes do usuario -->
+  <ion-card *ngFor="let user of perfil">
+    <!-- imagem de perfil do usuario -->
+    <img class="perfil-img" src="assets/imagens/joe.png" />
+    <br><br>
+    <!-- botao sair -->
+    <ion-button fill="clear" size="small" style="margin-left:10px" (click)="sair()">
+      sair
+      <ion-icon slot="end" name="log-out"></ion-icon>
+    </ion-button>
+    <!-- content principal -->
+    <ion-card-content style="background-color: white">
+      <!-- apelido do usuario -->
+      <ion-item class="ion-item-perfil">
+        <ion-card-title class="stitle">
+          {{user.nome}}
+        </ion-card-title>
+      </ion-item>
+      <br>
+      <!-- nome completo do usuario -->
+      <h5 class="title">Nome completo:</h5>
+      <p class="subtitle">{{user.nome}}</p>
+      <br>
+      <!-- cpf do usuario -->
+      <h5 class="title">CPF:</h5>
+      <p class="subtitle">{{user.cpf}}</p>
+      <br>
+      <!-- telefone do usuario -->
+      <h5 class="title">Telefone:</h5>
+      <p class="subtitle">{{user.telefone}}</p>
+      <br>
+      <!-- email do usuario -->
+      <h5 class="title">E-mail:</h5>
+      <p class="subtitle">{{user.email}}</p>
+      <br>
+    </ion-card-content>
+  </ion-card>
+  <!-- botao editar perfil -->
+  <ion-button expand="full" (click)="editar()">
+    Editar Perfil
+    <ion-icon slot="end" name="create"></ion-icon>
+  </ion-button>
+  <br>
+  <!-- botao excluir conta -->
+  <ion-button expand="block" fill="outline" (click)="deletar()">
+    Excluir conta
+    <ion-icon slot="end" name="trash"></ion-icon>
+  </ion-button>
+  <div style="height:30px"></div>
+</ion-content>

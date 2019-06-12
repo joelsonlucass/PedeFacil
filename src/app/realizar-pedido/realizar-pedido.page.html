@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- botao para voltar -->
+    <ion-button slot="start" fill="clear" (click)="back()">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-button>
+    <!-- titulo e imagem do restaurante atual -->
+    <ion-title>Cardápio</ion-title>
+    <ion-avatar slot="end" *ngFor="let rest of img">
+      <img [src]="rest.photo">
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url(../../assets/imagens/logo-black.png);" padding>
+
+  <h4 style="text-align: left;color:black;margin-left: 2%;font-weight: bold">Veja abaixo os itens mais vendidos</h4>
+  <!-- ******************************************************** -->
+  <!-- ******************************************************** -->
+  <!-- ************* Inteligencia Artificial ****************** -->
+  <!-- ******************************************************** -->
+  <!-- ******************************************************** -->
+  <!-- itens recomendados pela inteligencia artificial -->
+  <ion-item-sliding *ngFor="let recomendado of recomendados">
+    <!-- inicio do item do carrinho do usuario -->
+    <ion-item-sliding>
+      <ion-item style="--background: white;--border-color: #ffce00">
+        <!-- content com a nota e estrela amarela -->
+        <ion-icon ios="ios-star-outline" md="md-star-outline" item-start style="color: #ffce00"></ion-icon>&nbsp;
+        <!-- label principal para a lista -->
+        <ion-label>
+          <!-- nome do prato -->
+          <h2>{{recomendado.nome}}</h2>
+          <!-- descrição do prato -->
+          <p>{{recomendado.desc}}</p>
+        </ion-label>
+        <!-- botao de adicionar -->
+        <ion-button slot="end" fill="outline" color="warning" (click)="add(recomendado.nome)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-item-sliding>
+  <!-- ******************************************************** -->
+  <!-- ******************************************************** -->
+  <!-- ************* Inteligencia Artificial ****************** -->
+  <!-- ******************************************************** -->
+  <!-- ******************************************************** -->
+  
+  <ion-item-sliding *ngFor="let cardapio of cardapios">
+    <!-- item com um box para o label e input email -->
+    <h3 *ngIf="cardapio.tipo == 'Pratos Quentes' || cardapio.tipo == 'Sobremesas' || cardapio.tipo == 'Bebidas'"
+      style="text-align: left;color: #f04040 ;margin-left: 2%;font-weight: bold">{{cardapio.tipo}}</h3>
+    <!-- inicio do item do carrinho do usuario-->
+    <ion-item-sliding>
+      <ion-item>
+        <!-- label principal para a lista -->
+        <ion-label>
+          <!-- nome do prato -->
+          <h2>{{cardapio.nome}}</h2>
+          <!-- descrição do prato -->
+          <p>{{cardapio.desc}}</p>
+        </ion-label>
+        <!-- botao de adicionar -->
+        <ion-button slot="end" fill="outline" (click)="add(cardapio.nome)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-item-sliding>
+  <!-- fim item da lista-->
+
+  <br><br>
+  <!-- botao fixado ir para o carrinho -->
+  <ion-button expand="full" style="position: fixed;left: 10px;bottom: 20px" (click)="carrinho()">
+    Ir Para o Carrinho
+    <ion-icon slot="end" name="cart"></ion-icon>
+  </ion-button>
+
+</ion-content>

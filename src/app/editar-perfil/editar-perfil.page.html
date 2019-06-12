@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- botao de voltar -->
+    <ion-button slot="start" fill="clear" (click)="back()">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-button>
+    <!-- titulo da pagina -->
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="--background: url(../../assets/imagens/logo-black.png);" padding>
+  <ion-item *ngFor="let user of perfil">
+    <ion-avatar slot="start">
+      <!-- imagem de perfil do usuario -->
+      <img src="assets/imagens/joe.png">
+    </ion-avatar>
+    <!-- apelido do usuario -->
+    <ion-label>{{user.nome}}</ion-label>
+  </ion-item>
+  <!-- item com um box para o label e input email -->
+  <ion-item>
+    <!-- label email floating -->
+    <ion-label position="floating">Email:</ion-label>
+    <!-- input email -->
+    <ion-input type="email" value="" [(ngModel)]="editardata.email"></ion-input>
+  </ion-item>
+  <!-- item com um box para o label e input senha -->
+  <ion-item>
+    <!-- label senha floating -->
+    <ion-label position="floating">Senha:</ion-label>
+    <!-- input senha -->
+    <ion-input type="password" value="" [(ngModel)]="editardata.senha"></ion-input>
+  </ion-item>
+
+  <!-- item com um box para o label e input telefone -->
+  <ion-item>
+    <!-- label telefone floating -->
+    <ion-label position="floating">Telefone:</ion-label>
+    <!-- input telefone -->
+    <ion-input type="number" value="" [(ngModel)]="editardata.telefone"></ion-input>
+  </ion-item>
+
+  <br>
+  <!-- botão de login -->
+  <ion-button expand="full" color="danger" (click)="editar()">Confirmar</ion-button>
+
+</ion-content>
